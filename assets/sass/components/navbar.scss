@@ -1,0 +1,39 @@
+.navbar-light {
+  background-color: $light-background-color;
+  @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, .2));
+  border: none;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 150px 0 40px;
+  }
+
+  .navbar-brand {
+    font-family: "Allura-Regular", sans-serif;
+    font-size: 53px;
+    color: $theme-color;
+    padding: 0;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+    order: 2;
+
+    a {
+      margin-right: 17px;
+      font-family: "Arimo-Regular", sans-serif;
+      font-size: 17px;
+      color: $text-color;
+      letter-spacing: 0;
+
+      &.active,
+      &:hover {
+        font-family: "Arimo-Bold", sans-serif;
+        color: $text-color;
+      }
+    }
+  }
+}

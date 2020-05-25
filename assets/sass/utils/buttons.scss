@@ -1,0 +1,13 @@
+.btn {
+  display: block;
+  border-radius: 0;
+  font-family: 'Arimo-Regular', sans-serif;
+  font-size: 21px;
+  padding: 3px 25px;
+
+  &.btn-primary {
+    color: #fff;
+    background-color: #80BD9E;
+    border-color: #80BD9E;
+  }
+}

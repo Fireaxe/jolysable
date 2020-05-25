@@ -1,0 +1,58 @@
+app:
+  title: Jolysable
+signin: Envoyer
+user:
+  credentials:
+    identity: Identifiant
+    password: Mot de passe
+login:
+  username: Nom d'utilisateur
+  password: Mot de passe
+  remember: Se souvenir de moi
+page:
+  homepage:
+    title: Présentation
+    banner:
+      title: Chambres d'hotes Jolysable
+      location: Pons, Charente-Maritime
+    description:
+      label: "Etablissement situé entre Royan, Cognac et Bordeaux"
+      text: "Situées à 4 minutes de la sortie d’autoroute et 2 minutes du centre ville nos 5 chambres d'hôtes vous accueilleront dans le calme d'un écrin de verdure. Vous pourrez profiter d'un moment de repos au bord de l'étang."
+      text2: "Prix compris entre 60€ et 90€ petit déjeuner compris nos chambres ont toutes le wifi, un écran plat et un plateau de complaisance."
+      text3: "TOUTES NOS CHAMBRES ONT UNE ENTRÉE INDÉPENDANTE. Possibilité d'avoir le petit déjeuner en chambre. Les chambres sont entièrement désinfectées après chaque réservation."
+      text4: "Nous acceptons les animaux domestiques 5€ par animal (offert à partir de 2 nuits)"
+      text5: "Nous bénéficions d'un grand parking privé gratuit."
+  rooms:
+    title: Chambres
+    list:
+      title: Chambres disponibles
+    night: nuit
+    spec: Spécificités
+    equipment: Equipements
+  fishing:
+    title: Pêche
+    page: Entrez, installez-vous et pêchez !
+    price:
+      label: Tarifs
+      text: "10€ la journée"
+      text2: "20€ les 24h"
+    description:
+      text: "Tous les jours de 8h à 19h."
+      text2: "Installez-vous et nous passerons vous voir."
+      text3: "Carpes, esturgeons et tanches en no kill"
+      text4: "Gardons, gougeons, anguilles, brochets… peuvent être pris."
+  contact:
+    title: Contact / accès
+    page: Contact et accès
+    description:
+      contact: Contactez-nous pour toute réservation ou informations complémentaires
+      address: Adresse
+      behind: (derrière le Leclerc de Pons)
+    form:
+      label: Formulaire de contact
+      name: Votre nom (obligatoire)
+      email: Votre email (obligatoire)
+      phone: Votre numéro de téléphone (falcultatif)
+      subject: Sujet
+      message: Message
+send: Envoyer

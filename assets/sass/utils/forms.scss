@@ -1,0 +1,32 @@
+form {
+  textarea,
+  input {
+    font-family: 'Segoe UI Light', sans-serif;
+    display: block;
+    border: 2px solid #9A9EAB;
+    padding: 8px 15px;
+    width: 80%;
+    margin-bottom: 15px;
+  }
+
+  textarea {
+    width: 100%;
+  }
+}
+
+ul {
+  padding: 0;
+
+  &.errors {
+    li {
+      font-size: 16px;
+      color: #A0000E;
+    }
+  }
+
+  li {
+    font-family: "Segoe UI Light", sans-serif;
+    font-size: 21px;
+    list-style: none;
+  }
+}

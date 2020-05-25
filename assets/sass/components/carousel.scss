@@ -1,0 +1,39 @@
+.carousel-control-next {
+  right: 10%;
+}
+
+.slide-right-enter-active {
+  animation: SlideRightIn .5s;
+}
+
+.slide-right-leave-active {
+  animation: SlideRightOut .5s;
+}
+
+.slide-left-enter-active {
+  animation: SlideLeftIn .5s;
+}
+
+.slide-left-leave-active {
+  animation: SlideLeftOut .5s;
+}
+
+@keyframes SlideRightIn {
+  from { transform: translateX(100%) }
+  to { transform: translateX(0) }
+}
+
+@keyframes SlideRightOut {
+  from { transform: translateX(0) }
+  to { transform: translateX(-100%) }
+}
+
+@keyframes SlideLeftIn {
+  from { transform: translateX(-100%) }
+  to { transform: translateX(0) }
+}
+
+@keyframes SlideLeftOut {
+  from { transform: translateX(0) }
+  to { transform: translateX(100%) }
+}

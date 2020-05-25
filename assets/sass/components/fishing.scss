@@ -1,0 +1,38 @@
+.fishing {
+  background-color: $background-color;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 50px;
+  }
+
+  .fishing-block {
+    text-align: center;
+    margin: 0 30px 0 30px;
+
+    @include media-breakpoint-up(lg) {
+      margin: 25px 0 25px 0;
+    }
+
+    h2 {
+      margin-top: 70px;
+    }
+
+    p {
+      padding: 0;
+
+      &:first-child {
+        padding-top: 25px;
+      }
+    }
+
+    img {
+      margin-top: 20px;
+
+      @include media-breakpoint-up(lg) {
+        margin-top: 0;
+      }
+    }
+  }
+}
