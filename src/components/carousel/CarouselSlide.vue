@@ -1,30 +1,17 @@
 <template>
-  <transition :name="transition">
-    <div v-show="visible" class="carousel-item active">
-      <slot />
-    </div>
-  </transition>
+  <swiper-slide>
+    <slot />
+  </swiper-slide>
 </template>
 
 <script>
+import { SwiperSlide } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+
 export default {
   name: "CarouselSlide",
-  data() {
-    return {
-      index: 0
-    };
-  },
-  computed: {
-    transition() {
-      if (this.$parent.direction !== null) {
-        return "slide-" + this.$parent.direction;
-      }
-
-      return null;
-    },
-    visible() {
-      return this.index === this.$parent.index;
-    }
+  components: {
+    SwiperSlide
   }
 };
 </script>

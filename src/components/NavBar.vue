@@ -1,20 +1,14 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand" href="#">{{ $t("app.title") }}</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <router-link to="#banner" class="navbar-brand">
+      {{ $t("app.title") }}
+    </router-link>
+    <button v-on:click="toggle" class="navbar-toggler" type="button">
       <span class="navbar-toggler-icon" />
     </button>
-    <div id="navbarNavAltMarkup" class="collapse navbar-collapse">
+    <div ref="menu" class="collapse navbar-collapse">
       <div class="navbar-nav">
-        <router-link to="#banner" class="nav-item nav-link">
+        <router-link to="#description" class="nav-item nav-link">
           {{ $t("page.homepage.title") }}
         </router-link>
         <router-link to="#rooms" class="nav-item nav-link">
@@ -33,6 +27,17 @@
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  methods: {
+    toggle() {
+      const target = this.$refs.menu
+
+      if (!target.classList.contains("show")) {
+        target.classList.add("show")
+      } else {
+        target.classList.remove("show")
+      }
+    }
+  }
 };
 </script>

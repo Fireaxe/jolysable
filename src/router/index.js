@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import device from "swiper/src/modules/device/device";
 
 Vue.use(VueRouter);
 
@@ -28,7 +29,7 @@ router.beforeEach(function(to, from, next) {
 
       if (position) {
         window.scrollTo({
-          top: position.offsetTop,
+          top: device.proto.device.desktop ? position.offsetTop - 50 : position.offsetTop,
           behavior: "smooth"
         });
       }

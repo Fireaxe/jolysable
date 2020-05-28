@@ -1,57 +1,52 @@
 <template>
-  <div class="carousel">
-    <div class="carousel-inner">
-      <slot />
-    </div>
-
-    <a class="carousel-control-prev" @click.prevent="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true" />
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" @click.prevent="next">
-      <span class="carousel-control-next-icon" aria-hidden="true" />
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+  <swiper ref="carousel" :options="carouselOptions">
+    <slot />
+    <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
+    <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+    <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+  </swiper>
 </template>
 
 <script>
+import { Swiper, directive } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+
 export default {
   name: "Carousel",
+  components: {
+    Swiper
+  },
+  directives: {
+    swiper: directive
+  },
   data() {
     return {
-      index: 0,
-      slides: [],
-      direction: null
+      carouselOptions: {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows : true
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      }
     };
   },
   computed: {
-    slidesCount() {
-      return this.slides.length;
-    }
-  },
-  mounted() {
-    this.slides = this.$children;
-    this.slides.forEach((slide, i) => {
-      slide.index = i;
-    });
-  },
-  methods: {
-    next() {
-      this.index++;
-      this.direction = "right";
-
-      if (this.index >= this.slidesCount) {
-        this.index = 0;
-      }
-    },
-    prev() {
-      this.index--;
-      this.direction = "left";
-
-      if (this.index < 0) {
-        this.index = this.slidesCount - 1;
-      }
+    swiper() {
+      return this.$refs.carousel.$swiper;
     }
   }
 };

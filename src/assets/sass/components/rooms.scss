@@ -4,15 +4,18 @@
   padding-bottom: 50px;
 
   .room-block {
-    padding: 25px 0;
+    padding: 0 9.3%;
     border-bottom: 0.5px dashed $dark-background-color;
 
-    img {
-      width: 100%;
+    .room {
+      padding: 25px 0;
+      border-bottom: 0.5px dashed #7f7f80
+    }
 
-      @include media-breakpoint-up(lg) {
-        width: 90%;
-      }
+    img {
+      max-width:100%;
+      max-height:100%;
+      vertical-align: middle;
     }
 
     .room-summary {
@@ -20,10 +23,11 @@
       margin: 0 25px 0 25px;
 
       @include media-breakpoint-up(lg) {
-        margin: 0 0 25px 0;
+        margin: 25px;
       }
 
       h3 {
+        font-family: "Segoe UI", sans-serif;
         color: $theme-color;
         font-size: 22px;
         margin-top: 17px;
@@ -56,9 +60,11 @@
         color: $text-color;
         font-size: 22px;
         margin-left: 15px;
+        text-align: center;
 
         @include media-breakpoint-up(lg) {
           margin-left: 0;
+          text-align: left;
         }
 
         br {
@@ -86,8 +92,7 @@
     text-align: center;
 
     @include media-breakpoint-up(lg) {
-      margin: 0;
-      text-align: left;
+      margin: auto;
     }
   }
 }

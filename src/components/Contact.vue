@@ -45,39 +45,16 @@
             </div>
           </div>
         </div>
-
-        <!--        <div class="col-md-12 col-lg-12 p-0">-->
-        <!--          <h4 class="form-label">-->
-        <!--            {{ $t('page.contact.form.label') }}-->
-        <!--          </h4>-->
-
-        <!--                              {{ form_start(form) }}-->
-        <!--                              {{ form_widget(form.name) }}-->
-
-        <!--                              {{ form_errors(form.email) }}-->
-        <!--                              {{ form_widget(form.email) }}-->
-
-        <!--                              {{ form_widget(form.phone) }}-->
-        <!--                              {{ form_widget(form.subject) }}-->
-        <!--                              {{ form_widget(form.message) }}-->
-
-        <!--                              <button class="btn btn-primary">-->
-        <!--                                  {{ $t('send') }}-->
-        <!--                              </button>-->
-        <!--                              {{ form_end(form) }}-->
-        <!--        </div>-->
       </div>
-      <div class="col-md-12 col-lg-6 address">
+      <div class="col-md-12 col-lg-6 address-block">
         <h4>{{ $t("page.contact.description.address") }}</h4>
 
-        <ul>
+        <ul class="address">
           <li>Lieu dit : Jolysable</li>
           <li>14 rue des fontaines</li>
           <li>17800 Pons</li>
           <li>{{ $t("page.contact.description.behind") }}</li>
         </ul>
-
-        <!--        <div id="map" />-->
       </div>
     </div>
   </div>

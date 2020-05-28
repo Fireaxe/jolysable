@@ -16,7 +16,7 @@
         <p>No rooms</p>
       </div>
       <div class="row room" v-else v-for="room in rooms" :key="room.nid">
-        <div class="offset-lg-1 col-lg-3 p-0">
+        <div class="col-lg-4 p-0">
           <carousel>
             <carousel-slide v-for="image in room.field_images" :key="image">
               <img :src="backUrl + image" alt="room-image" />
@@ -35,18 +35,17 @@
                   {{ room.field_size }}
                 </div>
                 <div class="room-description">
-                  {{ room.field_desc }}
+                  {{ room.field_description }}
                 </div>
               </div>
               <div class="col-md-12 offset-lg-1 col-lg-5 p-0">
                 <h4>{{ $t("page.rooms.equipment") }}</h4>
 
-                <div
-                  class="room-equipment"
-                  v-for="equipment in room.field_equipment"
-                  :key="equipment"
-                >
-                  {{ equipment }}
+                <div class="room-equipment">
+                  <label v-for="equipment in room.field_equipment"
+                         :key="equipment">
+                    {{ equipment }}
+                  </label>
                 </div>
               </div>
             </div>
