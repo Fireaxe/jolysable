@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div id="description"  class="row">
+    <div id="description" class="row">
       <div class="row description">
         <div class="col-md-12 col-lg-4 description">
           <div class="description-label">

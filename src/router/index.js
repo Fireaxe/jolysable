@@ -29,7 +29,9 @@ router.beforeEach(function(to, from, next) {
 
       if (position) {
         window.scrollTo({
-          top: device.proto.device.desktop ? position.offsetTop - 50 : position.offsetTop,
+          top: device.proto.device.desktop
+            ? position.offsetTop - 50
+            : position.offsetTop,
           behavior: "smooth"
         });
       }

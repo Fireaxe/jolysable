@@ -30,12 +30,12 @@ export default {
   name: "Navbar",
   methods: {
     toggle() {
-      const target = this.$refs.menu
+      const target = this.$refs.menu;
 
       if (!target.classList.contains("show")) {
-        target.classList.add("show")
+        target.classList.add("show");
       } else {
-        target.classList.remove("show")
+        target.classList.remove("show");
       }
     }
   }

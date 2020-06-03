@@ -15,10 +15,10 @@
       <div v-else-if="!hasRooms" class="row offset-lg-1 col-lg-3 p-0">
         <p>No rooms</p>
       </div>
-      <div class="row room" v-else v-for="room in rooms" :key="room.nid">
+      <div class="row room" v-else v-for="room in rooms" :key="room.id">
         <div class="col-lg-4 p-0">
           <carousel>
-            <carousel-slide v-for="image in room.field_images" :key="image">
+            <carousel-slide v-for="image in room.images" :key="image">
               <img :src="backUrl + image" alt="room-image" />
             </carousel-slide>
           </carousel>
@@ -32,18 +32,17 @@
                 <h4>{{ $t("page.rooms.spec") }}</h4>
 
                 <div class="room-size">
-                  {{ room.field_size }}
+                  {{ room.size }}
                 </div>
                 <div class="room-description">
-                  {{ room.field_description }}
+                  {{ room.description }}
                 </div>
               </div>
               <div class="col-md-12 offset-lg-1 col-lg-5 p-0">
                 <h4>{{ $t("page.rooms.equipment") }}</h4>
 
                 <div class="room-equipment">
-                  <label v-for="equipment in room.field_equipment"
-                         :key="equipment">
+                  <label v-for="equipment in room.equipment" :key="equipment">
                     {{ equipment }}
                   </label>
                 </div>
@@ -53,7 +52,7 @@
         </div>
         <div class="col-md-12 col-lg-2 p-0">
           <h3 class="room-price">
-            {{ room.field_price }}€/{{ $t("page.rooms.night") }}
+            {{ room.price }}€/{{ $t("page.rooms.night") }}
           </h3>
         </div>
       </div>
@@ -89,7 +88,9 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch("room/findAll");
+    if (this.$store.getters["auth/isAuthenticated"]) {
+      this.$store.dispatch("room/FETCHING_ROOMS_SUCCESS");
+    }
   }
 };
 </script>

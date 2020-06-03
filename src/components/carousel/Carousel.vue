@@ -1,9 +1,18 @@
 <template>
   <swiper ref="carousel" :options="carouselOptions">
     <slot />
-    <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
-    <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-    <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+    <div
+      class="swiper-pagination swiper-pagination-white"
+      slot="pagination"
+    ></div>
+    <div
+      class="swiper-button-prev swiper-button-white"
+      slot="button-prev"
+    ></div>
+    <div
+      class="swiper-button-next swiper-button-white"
+      slot="button-next"
+    ></div>
   </swiper>
 </template>
 
@@ -22,24 +31,24 @@ export default {
   data() {
     return {
       carouselOptions: {
-        effect: 'coverflow',
+        effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         coverflowEffect: {
           rotate: 50,
           stretch: 0,
           depth: 100,
           modifier: 1,
-          slideShadows : true
+          slideShadows: true
         },
         pagination: {
           el: ".swiper-pagination",
-          clickable: true,
+          clickable: true
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
         }
       }
     };
