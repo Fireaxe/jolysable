@@ -2,7 +2,7 @@ import { HTTP } from "./http-common";
 
 export default {
   findAll() {
-    return HTTP.get("jsonapi/node/rooms?include=field_images", {
+    return HTTP.get("jsonapi/node/rooms?sort=field_price", {
       headers: {
         Accept: "application/vnd.api+json"
       },

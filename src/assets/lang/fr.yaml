@@ -29,6 +29,12 @@ page:
     night: nuit
     spec: Spécificités
     equipment: Equipements
+    equipments:
+      climatisation: Climatisation
+      food: Plateau de complaisance
+      tv: Télévision écran plat
+      kitchen: Coin cuisine
+      wifi: Wifi
   fishing:
     title: Pêche
     page: Entrez, installez-vous et pêchez !

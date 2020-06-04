@@ -43,7 +43,7 @@
 
                 <div class="room-equipment">
                   <label v-for="equipment in room.equipment" :key="equipment">
-                    {{ equipment }}
+                    {{ $t("page.rooms.equipments." + equipment) }}
                   </label>
                 </div>
               </div>
