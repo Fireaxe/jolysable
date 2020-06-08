@@ -35,6 +35,8 @@ export default {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
+        autoHeight: true,
+        speed: 500,
         coverflowEffect: {
           rotate: 50,
           stretch: 0,

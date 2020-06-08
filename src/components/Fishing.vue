@@ -1,5 +1,5 @@
 <template>
-  <div id="fishing" class="fishing">
+  <section id="fishing" class="fishing">
     <div class="row">
       <div class="col-md-12 offset-lg-1 col-lg-5">
         <h1 class="page-title large">
@@ -30,7 +30,7 @@
         <img width="100%" src="../assets/images/etang.png" alt="etang" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

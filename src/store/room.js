@@ -35,42 +35,26 @@ export default {
     [FETCHING_ROOMS](state) {
       state.isLoading = true;
       state.error = null;
-      state.rooms = [];
+      state.rooms = {};
     },
     [FETCHING_ROOM](state) {
       state.isLoading = true;
       state.error = null;
     },
     [FETCHING_ROOMS_SUCCESS](state, rooms) {
-      let newRooms = {};
+      state.rooms = {};
       state.isLoading = false;
       state.error = null;
+
       rooms.data.forEach(room => {
-        newRooms[room.id] = {
-          id: room.id,
-          open: room.attributes.field_open,
-          title: room.attributes.title,
-          size: room.attributes.field_size,
-          price: room.attributes.field_price,
-          description: room.attributes.field_desc,
-          equipment: room.attributes.field_equipment
-        };
-
-        this.dispatch("room/FETCHING_ROOM_SUCCESS", room.id)
+        this.dispatch("room/FETCHING_ROOM", room.id)
       });
-
-      Vue.set(state, "rooms", newRooms);
     },
     [FETCHING_ROOM_SUCCESS](state, room) {
-      let rooms = state.rooms;
       state.isLoading = false;
       state.error = null;
 
-      if (rooms[room.id] !== undefined) {
-        rooms.splice(rooms.indexOf(rooms[room.id]), 1);
-      }
-
-      rooms[room.data.id] = {
+      Vue.set(state.rooms, room.data.id, {
         id: room.data.id,
         open: room.data.attributes.field_open,
         title: room.data.attributes.title,
@@ -81,9 +65,7 @@ export default {
         images: room.included.map(el => {
           return el.attributes.uri.url;
         })
-      };
-
-      Vue.set(state, "rooms", rooms);
+      });
     },
     [FETCHING_ROOMS_ERROR](state, error) {
       state.isLoading = false;
@@ -91,7 +73,7 @@ export default {
     }
   },
   actions: {
-    [FETCHING_ROOMS_SUCCESS]: async ({ commit }) => {
+    [FETCHING_ROOMS]: async ({ commit }) => {
       commit(FETCHING_ROOMS);
       try {
         let response = await RoomAPI.findAll();
@@ -102,7 +84,7 @@ export default {
         return null;
       }
     },
-    [FETCHING_ROOM_SUCCESS]: async ({ commit }, id) => {
+    [FETCHING_ROOM]: async ({ commit }, id) => {
       commit(FETCHING_ROOM);
       try {
         let response = await RoomAPI.findOne(id);

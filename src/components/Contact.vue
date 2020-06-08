@@ -1,5 +1,5 @@
 <template>
-  <div id="contact" class="contact">
+  <section id="contact" class="contact">
     <div class="row">
       <div class="col-md-12 offset-lg-1 col-lg-5">
         <h1 class="page-title">
@@ -57,7 +57,7 @@
         </ul>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

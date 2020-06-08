@@ -1,5 +1,5 @@
 <template>
-  <div id="rooms" class="rooms">
+  <section id="rooms" class="rooms">
     <div class="row">
       <div class="col-md-12 offset-lg-1 col-lg-5">
         <h1 class="page-title">
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -89,7 +89,7 @@ export default {
   },
   created() {
     if (this.$store.getters["auth/isAuthenticated"]) {
-      this.$store.dispatch("room/FETCHING_ROOMS_SUCCESS");
+      this.$store.dispatch("room/FETCHING_ROOMS");
     }
   }
 };
