@@ -1,22 +1,24 @@
 <template>
   <section id="banner" class="banner">
-    <div v-if="isLoading" class="row">
-      <p>Loading...</p>
-    </div>
-    <div v-if="!hasCarousels" class="row">
-      <p>No Images...</p>
-    </div>
-    <div v-else class="banner__container">
-      <carousel class="banner__carousel">
-        <carousel-slide v-for="image in homepageCarousel.images" :key="image">
-          <img :src="backUrl + image" alt="carousel-image" width="100%" />
-        </carousel-slide>
-      </carousel>
-      <div class="banner__text">
-        <h1>{{ $t("page.homepage.banner.title") }}</h1>
-        <p>{{ $t("page.homepage.banner.location") }}</p>
+    <transition name="fade" mode="out-in">
+      <div v-if="isLoading" class="banner__loader">
+        <img src="../assets/images/spinner.svg" alt="spinner" />
       </div>
-    </div>
+      <div v-else-if="!hasCarousels" class="banner__loader">
+        <p>No Images...</p>
+      </div>
+      <div v-else class="banner__container">
+        <carousel class="banner__carousel">
+          <carousel-slide v-for="image in homepageCarousel.images" :key="image">
+            <img :src="image" alt="carousel-image" width="100%" />
+          </carousel-slide>
+        </carousel>
+        <div class="banner__text">
+          <h1>{{ $t("page.homepage.banner.title") }}</h1>
+          <p>{{ $t("page.homepage.banner.location") }}</p>
+        </div>
+      </div>
+    </transition>
 
     <div id="description">
       <div class="row description">
@@ -65,9 +67,6 @@ export default {
       return Object.values(carousels).find(
         carousel => carousel.title === "Homepage"
       );
-    },
-    backUrl() {
-      return process.env.VUE_APP_ENDPOINT;
     }
   },
   created() {

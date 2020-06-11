@@ -47,6 +47,16 @@ export default {
       state.error = null;
 
       rooms.data.forEach(room => {
+        Vue.set(state.rooms, room.id, {
+          id: room.id,
+          open: room.attributes.field_open,
+          title: room.attributes.title,
+          size: room.attributes.field_size,
+          price: room.attributes.field_price,
+          description: room.attributes.field_description,
+          equipment: room.attributes.field_equipment
+        });
+
         this.dispatch("room/FETCHING_ROOM", room.id);
       });
     },
@@ -60,10 +70,16 @@ export default {
         title: room.data.attributes.title,
         size: room.data.attributes.field_size,
         price: room.data.attributes.field_price,
-        description: room.data.attributes.field_desc,
+        description: room.data.attributes.field_description,
         equipment: room.data.attributes.field_equipment,
         images: room.included.map(el => {
-          return el.attributes.uri.url;
+          let image = null;
+          el.attributes.image_style_uri.forEach(el => {
+            if (el["large"] !== undefined) {
+              image = el["large"]
+            }
+          })
+          return image;
         })
       });
     },
@@ -76,9 +92,9 @@ export default {
     [FETCHING_ROOMS]: async ({ commit }) => {
       commit(FETCHING_ROOMS);
       try {
-        let response = await RoomAPI.findAll();
-        commit(FETCHING_ROOMS_SUCCESS, response.data);
-        return response.data;
+      let response = await RoomAPI.findAll();
+      commit(FETCHING_ROOMS_SUCCESS, response.data);
+      return response.data;
       } catch (error) {
         commit(FETCHING_ROOMS_ERROR, error);
         return null;

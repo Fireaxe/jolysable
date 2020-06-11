@@ -2,6 +2,15 @@
   margin-top: 75px;
   padding-bottom: 50px;
 
+  .banner__loader {
+    display: block;
+    margin: auto;
+    padding-top: 20vh;
+    background-color: #f1f2f3;
+    text-align: center;
+    min-height: 75vh;
+  }
+
   .banner__container {
     display: flex;
     max-height: 85vh;

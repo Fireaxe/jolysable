@@ -37,6 +37,7 @@ export default {
         slidesPerView: "auto",
         autoHeight: true,
         speed: 500,
+        loop: true,
         coverflowEffect: {
           rotate: 50,
           stretch: 0,

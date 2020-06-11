@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import device from "swiper/src/modules/device/device";
+import progressBar from "../utils/nprogress";
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,17 @@ router.beforeEach(function(to, from, next) {
     }
   }, 100);
   next();
+});
+
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    progressBar.start()
+  }
+  next()
+});
+
+router.afterEach(() => {
+  progressBar.stop()
 });
 
 export default router;

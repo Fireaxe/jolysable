@@ -59,11 +59,10 @@
         font-family: "Segoe UI", sans-serif;
         color: $text-color;
         font-size: 22px;
-        margin-left: 15px;
+        margin-left: 0;
         text-align: center;
 
         @include media-breakpoint-up(lg) {
-          margin-left: 0;
           text-align: left;
         }
 

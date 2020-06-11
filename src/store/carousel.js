@@ -42,7 +42,13 @@ export default {
       Vue.set(state.carousels, carousel.data.id, {
         title: carousel.data.attributes.title,
         images: carousel.included.map(el => {
-          return el.attributes.uri.url;
+          let image = null;
+          el.attributes.image_style_uri.forEach(el => {
+            if (el["homepage"] !== undefined) {
+              image = el["homepage"]
+            }
+          })
+          return image;
         })
       });
     },
@@ -54,14 +60,14 @@ export default {
   actions: {
     homepage: async ({ commit }) => {
       commit(FETCHING_CAROUSEL);
-      try {
+      // try {
         let response = await CarouselAPI.findHomepage();
         commit(FETCHING_CAROUSEL_SUCCESS, response.data);
         return response.data;
-      } catch (error) {
-        commit(FETCHING_CAROUSEL_ERROR, error);
-        return null;
-      }
+      // } catch (error) {
+      //   commit(FETCHING_CAROUSEL_ERROR, error);
+      //   return null;
+      // }
     }
   }
 };

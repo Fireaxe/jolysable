@@ -19,7 +19,7 @@
         <div class="col-lg-4 p-0">
           <carousel>
             <carousel-slide v-for="image in room.images" :key="image">
-              <img :src="backUrl + image" alt="room-image" />
+              <img :src="image" alt="room-image" />
             </carousel-slide>
           </carousel>
         </div>
@@ -82,9 +82,6 @@ export default {
     },
     rooms() {
       return this.$store.getters["room/rooms"];
-    },
-    backUrl() {
-      return process.env.VUE_APP_ENDPOINT;
     }
   },
   created() {
