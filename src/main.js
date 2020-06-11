@@ -14,8 +14,6 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueI18n);
 
-store.dispatch("auth/authAdmin");
-
 Vue.use(VueTimeago, {
   locale: "fr"
 });

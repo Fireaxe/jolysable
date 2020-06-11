@@ -47,7 +47,7 @@ export default {
       state.error = null;
 
       rooms.data.forEach(room => {
-        this.dispatch("room/FETCHING_ROOM", room.id)
+        this.dispatch("room/FETCHING_ROOM", room.id);
       });
     },
     [FETCHING_ROOM_SUCCESS](state, room) {
@@ -89,7 +89,7 @@ export default {
       try {
         let response = await RoomAPI.findOne(id);
         commit(FETCHING_ROOM_SUCCESS, response.data);
-      return response.data;
+        return response.data;
       } catch (error) {
         commit(FETCHING_ROOMS_ERROR, error);
         return null;

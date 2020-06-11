@@ -40,8 +40,8 @@
 </template>
 
 <script>
-  import Carousel from "./carousel/Carousel.vue";
-  import CarouselSlide from "./carousel/CarouselSlide.vue";
+import Carousel from "./carousel/Carousel.vue";
+import CarouselSlide from "./carousel/CarouselSlide.vue";
 
 export default {
   name: "Banner",
@@ -60,18 +60,18 @@ export default {
       return this.$store.getters["carousel/hasCarousels"];
     },
     homepageCarousel() {
-      const carousels = this.$store.getters["carousel/carousels"]
+      const carousels = this.$store.getters["carousel/carousels"];
 
-      return Object.values(carousels).find(carousel => carousel.title === "Homepage")
+      return Object.values(carousels).find(
+        carousel => carousel.title === "Homepage"
+      );
     },
     backUrl() {
       return process.env.VUE_APP_ENDPOINT;
     }
   },
   created() {
-    if (this.$store.getters["auth/isAuthenticated"]) {
-      this.$store.dispatch("carousel/homepage");
-    }
+    this.$store.dispatch("carousel/homepage");
   }
 };
 </script>

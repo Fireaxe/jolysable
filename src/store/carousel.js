@@ -44,7 +44,7 @@ export default {
         images: carousel.included.map(el => {
           return el.attributes.uri.url;
         })
-      })
+      });
     },
     [FETCHING_CAROUSEL_ERROR](state, error) {
       state.isLoading = false;
@@ -54,14 +54,14 @@ export default {
   actions: {
     homepage: async ({ commit }) => {
       commit(FETCHING_CAROUSEL);
-      // try {
+      try {
         let response = await CarouselAPI.findHomepage();
         commit(FETCHING_CAROUSEL_SUCCESS, response.data);
         return response.data;
-      // } catch (error) {
-      //   commit(FETCHING_CAROUSEL_ERROR, error);
-      //   return null;
-      // }
+      } catch (error) {
+        commit(FETCHING_CAROUSEL_ERROR, error);
+        return null;
+      }
     }
   }
-}
+};

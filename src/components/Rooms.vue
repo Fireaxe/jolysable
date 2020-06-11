@@ -88,9 +88,7 @@ export default {
     }
   },
   created() {
-    if (this.$store.getters["auth/isAuthenticated"]) {
-      this.$store.dispatch("room/FETCHING_ROOMS");
-    }
+    this.$store.dispatch("room/FETCHING_ROOMS");
   }
 };
 </script>
